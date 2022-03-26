@@ -1,17 +1,17 @@
 package pl.coderslab;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-@Component
+@Service
 public class MockBookService implements BookService{
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
     private static Long nextId = 4L;
     public MockBookService() {
-        books = new ArrayList<>();
+//        books = new ArrayList<>();
         books.add(new Book(1L, "9788324631766","Thiniking in Java","Bruce Eckel", "Helion", "programming"));
         books.add(new Book(2L, "9788324627738","Rusz głową Java.","Sierra Kathy, Bates Bert","Helion",
                 "programming"));
