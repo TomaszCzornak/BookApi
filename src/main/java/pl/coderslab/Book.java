@@ -3,19 +3,35 @@ package pl.coderslab;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
 public class Book {
+    public Book() {
 
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String isbn;
     private String title;
     private String author;
     private String publisher;
     private String type;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
+
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
@@ -37,9 +53,7 @@ public class Book {
         this.type = type;
     }
 
-    public Long getId() {
-        return id;
-    }
+
 
     public String getIsbn() {
         return isbn;
